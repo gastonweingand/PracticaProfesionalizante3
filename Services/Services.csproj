@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService\Service.cs" />
+    <Compile Include="Domain\Composite\Component.cs" />
+    <Compile Include="Domain\Composite\Familia.cs" />
+    <Compile Include="Domain\Composite\Patente.cs" />
+    <Compile Include="Domain\Composite\User.cs" />
     <Compile Include="Domain\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

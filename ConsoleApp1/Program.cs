@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Domain.Composite;
 
 namespace ConsoleApp1
 {
@@ -15,23 +16,51 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Service obj1 = Service.GetInstance();
-            Service obj2 = Service.GetInstance();
+            Patente patenteVentas = new Patente();
+            patenteVentas.FormName = "frmVentas";
+            patenteVentas.MenuName = "mnuCrearVenta";
+            patenteVentas.Id = Guid.NewGuid();
 
-            Console.WriteLine(obj1 == obj2);
+            Patente patenteCompras = new Patente();
+            patenteCompras.FormName = "frmCompras";
+            patenteCompras.MenuName = "mnuCrearCompra";
+            patenteCompras.Id = Guid.NewGuid();
 
-            Service.GetInstance().WriteMessage("Bienvenidos al singleton");
+            Patente patenteReporte = new Patente();
+            patenteReporte.FormName = "frmReporte";
+            patenteReporte.MenuName = "mnuVerReportes";
+            patenteReporte.Id = Guid.NewGuid();
 
-            Service.GetInstance().WriteMessage("Segundo mensaje...");
+            Familia jefe = new Familia();
+            jefe.NombrePerfil = "Jefe";
+            jefe.Add(patenteCompras);
+            jefe.Add(patenteVentas);
+
+            Familia administrador = new Familia();
+            administrador.NombrePerfil = "Admin";
+            administrador.Add(jefe);
+            administrador.Add(patenteReporte);
 
 
 
 
+
+
+
+
+
+            //Singleton();
+
+            //RepositoryPattern();
+        }
+
+        private static void RepositoryPattern()
+        {
             Cliente cli = new Cliente() { Id = Guid.NewGuid(), CUIT = "8", Nombre = "Thomas" };
 
             IGenericRepository<Cliente> clientesRepo = FactoryDAL.Current.GetClientesRepository();
 
-            foreach(Cliente cliente in clientesRepo.GetAll())
+            foreach (Cliente cliente in clientesRepo.GetAll())
             {
                 Console.WriteLine($"CUIT: {cliente.CUIT}, Nombre: {cliente.Nombre}");
             }
@@ -45,6 +74,18 @@ namespace ConsoleApp1
             {
                 Console.WriteLine($"Cliente CUIT: {item.CUIT}");
             }
+        }
+
+        private static void Singleton()
+        {
+            Service obj1 = Service.GetInstance();
+            Service obj2 = Service.GetInstance();
+
+            Console.WriteLine(obj1 == obj2);
+
+            Service.GetInstance().WriteMessage("Bienvenidos al singleton");
+
+            Service.GetInstance().WriteMessage("Segundo mensaje...");
         }
     }
 }
