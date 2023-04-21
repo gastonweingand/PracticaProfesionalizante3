@@ -41,7 +41,17 @@ namespace ConsoleApp1
             administrador.Add(jefe);
             administrador.Add(patenteReporte);
 
+            User usuario = new User();
+            usuario.Permisos.Add(jefe);
+            usuario.Permisos.Add(administrador);
+            usuario.Permisos.Add(patenteCompras);
 
+            List<Patente> patentes = usuario.GetPatentes();
+
+            foreach (var item in patentes)
+            {
+                Console.WriteLine($"Patente: {item.FormName}, {item.MenuName}");
+            }
 
 
 
