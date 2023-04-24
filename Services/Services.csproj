@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService\Service.cs" />
+    <Compile Include="BLL\IdiomaBll.cs" />
+    <Compile Include="DAL\IdiomaDal.cs" />
+    <Compile Include="Domain\BusinessExceptions\PalabraNoEncontradaExcepcion.cs" />
     <Compile Include="Domain\Composite\Component.cs" />
     <Compile Include="Domain\Composite\Familia.cs" />
     <Compile Include="Domain\Composite\Patente.cs" />
@@ -50,9 +53,6 @@
     <Compile Include="Domain\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
