@@ -51,6 +51,7 @@
     <Compile Include="Domain\Composite\Patente.cs" />
     <Compile Include="Domain\Composite\User.cs" />
     <Compile Include="Domain\Usuario.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -28,11 +28,11 @@ namespace Services.BLL
         }
         #endregion
 
-        public String Traducir(String key, String idiomaDestino)
+        public String Traducir(String key)
         {
             try
             {
-                return IdiomaDal.Current.Traducir(key, idiomaDestino);
+                return IdiomaDal.Current.Traducir(key);
             }
             catch (PalabraNoEncontradaExcepcion ex)
             {

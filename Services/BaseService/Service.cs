@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.BLL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -7,28 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.BaseService
-{
-
-    public sealed class Singleton
-    {
-        #region Singleton
-        private readonly static Singleton _instance = new Singleton();
-
-        public static Singleton Current
-        {
-            get
-            {
-                return _instance;
-            }
-        }
-
-        private Singleton()
-        {
-            //Implement here the initialization code
-        }
-        #endregion
-    }
-
+{ 
     public class Service
     {
         #region Singleton
@@ -64,6 +44,24 @@ namespace Services.BaseService
             {
                 str.WriteLine(msg);
             }
+        }
+
+        public String Traducir(String key)
+        {
+            try
+            {
+                return IdiomaBll.Current.Traducir(key);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public List<String> GetIdiomasDisponibles()
+        {
+            return null;
         }
     }
 }

@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Services.Domain.Composite;
+using Services.Extensions;
+using System.Threading;
+using System.Globalization;
 
 namespace ConsoleApp1
 {
@@ -16,6 +19,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(Thread.CurrentThread.CurrentUICulture);
+
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-AR");
+
+            String demo = "Bienvenidos".Traducir();
+
+
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
+            demo = "Bienvenidos".Traducir();
+
+            String otraPalabra = "Otra".Traducir();
+
+            //String palabra = Service.GetInstance().Traducir("Bienvenidos", "en-US");
+            //String palabra2 = Service.GetInstance().Traducir("Bienvenidos", "es-AR");
+            //Console.WriteLine(palabra);
+            //Console.WriteLine(palabra2);
+
             Patente patenteVentas = new Patente();
             patenteVentas.FormName = "frmVentas";
             patenteVentas.MenuName = "mnuCrearVenta";

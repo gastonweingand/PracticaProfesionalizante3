@@ -5,6 +5,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Services.DAL
@@ -37,9 +38,9 @@ namespace Services.DAL
         /// <param name="key"></param>
         /// <param name="idiomaDestino"></param>
         /// <returns>o se puede lanzar una PalabraNoEncontradaExcepcion...</returns>
-        public String Traducir(String key, String idiomaDestino)
+        public String Traducir(String key)
         {
-            String destinationPath = path + idiomaDestino;
+            String destinationPath = path + Thread.CurrentThread.CurrentUICulture.Name;
 
             using (StreamReader sr = new StreamReader(destinationPath))
             {
