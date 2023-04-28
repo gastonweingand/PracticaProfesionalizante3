@@ -32,7 +32,7 @@ namespace Services.BLL
         {
             try
             {
-                return IdiomaDal.Current.Traducir(key);
+                return IdiomaRepository.Current.Traducir(key);
             }
             catch (PalabraNoEncontradaExcepcion ex)
             {

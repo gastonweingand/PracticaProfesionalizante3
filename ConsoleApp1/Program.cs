@@ -12,6 +12,7 @@ using Services.Domain.Composite;
 using Services.Extensions;
 using System.Threading;
 using System.Globalization;
+using Services.DAL;
 
 namespace ConsoleApp1
 {
@@ -19,6 +20,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+            Services.DAL.Interfaces.IGenericRepository<Patente> repoPatente = Services.DAL.Factory.FactoryDAL.Current.GetPatenteRepository();
+            foreach (var item in repoPatente.GetAll())
+            {
+                Console.WriteLine(item.FormName);
+            }
+
+            Patente patenteOne = repoPatente.GetById(Guid.Parse("5bd7188d-1269-4621-9a16-d9051779ff5c"));
+
+            Console.WriteLine(patenteOne.FormName);
+
             Console.WriteLine(Thread.CurrentThread.CurrentUICulture);
 
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-AR");
@@ -30,7 +42,14 @@ namespace ConsoleApp1
 
             demo = "Bienvenidos".Traducir();
 
-            String otraPalabra = "Otra".Traducir();
+            //String otraPalabra = "Otra".Traducir();
+
+            List<CultureInfo> idiomas = IdiomaRepository.Current.GetIdiomasDisponibles();
+
+            foreach (var item in idiomas)
+            {
+                Console.WriteLine($"Nombre idioma: {item.Name}, displayName: {item.DisplayName}");
+            }
 
             //String palabra = Service.GetInstance().Traducir("Bienvenidos", "en-US");
             //String palabra2 = Service.GetInstance().Traducir("Bienvenidos", "es-AR");

@@ -13,8 +13,6 @@ namespace DAL.Implementations.SqlServer
 {
     public class ClienteSqlServerRepository : IGenericRepository<Cliente>
     {
-
-
         #region Statements
         private string InsertStatement
         {
@@ -41,8 +39,6 @@ namespace DAL.Implementations.SqlServer
             get => "SELECT IdUsuario , Nombre, FechaNac FROM [dbo].[Cliente]";
         }
         #endregion
-
-
 
         public void Add(Cliente obj)
         {

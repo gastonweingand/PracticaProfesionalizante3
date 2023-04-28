@@ -44,7 +44,14 @@
   <ItemGroup>
     <Compile Include="BaseService\Service.cs" />
     <Compile Include="BLL\IdiomaBll.cs" />
-    <Compile Include="DAL\IdiomaDal.cs" />
+    <Compile Include="DAL\Factory\Factory.cs" />
+    <Compile Include="DAL\Implementations\PlainText\IdiomaRepository.cs" />
+    <Compile Include="DAL\Implementations\SqlServer\Adapters\PatenteAdapter.cs" />
+    <Compile Include="DAL\Implementations\SqlServer\PatenteRepository.cs" />
+    <Compile Include="DAL\Interfaces\IIdiomaRepository.cs" />
+    <Compile Include="DAL\Interfaces\IGenericAdapter.cs" />
+    <Compile Include="DAL\Interfaces\IGenericRepository.cs" />
+    <Compile Include="DAL\Tools\SqlHelper.cs" />
     <Compile Include="Domain\BusinessExceptions\PalabraNoEncontradaExcepcion.cs" />
     <Compile Include="Domain\Composite\Component.cs" />
     <Compile Include="Domain\Composite\Familia.cs" />
@@ -54,6 +61,9 @@
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAL\Implementations\Memory\" />
+    <Folder Include="DAL\Implementations\MySql\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

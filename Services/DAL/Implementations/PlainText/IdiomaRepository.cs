@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,12 @@ using System.Threading.Tasks;
 namespace Services.DAL
 {
 
-    public sealed class IdiomaDal
+    public sealed class IdiomaRepository : IIdiomaRepository
     {
         #region Singleton
-        private readonly static IdiomaDal _instance = new IdiomaDal();
+        private readonly static IdiomaRepository _instance = new IdiomaRepository();
 
-        public static IdiomaDal Current
+        public static IdiomaRepository Current
         {
             get
             {
@@ -24,13 +25,14 @@ namespace Services.DAL
             }
         }
 
-        private IdiomaDal()
+        private IdiomaRepository()
         {
             //Implement here the initialization code
         }
         #endregion
 
-        private String path = ConfigurationManager.AppSettings["IdiomaPath"];
+        private String path = ConfigurationManager.AppSettings["IdiomaPathName"];
+        private String folderLang = ConfigurationManager.AppSettings["FolderIdiomaPath"];
 
         /// <summary>
         /// Retorna la palabra traducida...
@@ -40,7 +42,7 @@ namespace Services.DAL
         /// <returns>o se puede lanzar una PalabraNoEncontradaExcepcion...</returns>
         public String Traducir(String key)
         {
-            String destinationPath = path + Thread.CurrentThread.CurrentUICulture.Name;
+            String destinationPath = folderLang + "/" + path + Thread.CurrentThread.CurrentUICulture.Name;
 
             using (StreamReader sr = new StreamReader(destinationPath))
             {
@@ -57,6 +59,20 @@ namespace Services.DAL
             //Qué pasa si estoy acá?
             throw new PalabraNoEncontradaExcepcion();
         }
+
+        public List<CultureInfo> GetIdiomasDisponibles()
+        {
+            List<CultureInfo> idiomas = new List<CultureInfo>();
+
+            foreach (var item in new DirectoryInfo(folderLang).GetFiles())
+            {
+                idiomas.Add(new CultureInfo(item.Extension.Substring(1)));
+            }
+
+            return idiomas;
+        }
     }
+
+
 
 }
