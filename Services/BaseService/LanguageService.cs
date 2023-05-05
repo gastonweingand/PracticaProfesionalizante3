@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Services.BaseService
 { 
-    public class Service
+    public class LanguageService
     {
         #region Singleton
-        private Service()
+        private LanguageService()
         {
 
         }
         //Mi propia instancia
-        private static Service service;
+        private static LanguageService service;
         private static object objetoBloqueo = new object();
-        public static Service GetInstance()
+        public static LanguageService GetInstance()
             //Solución Thread Safe del patrón singleton
         {
             if (service == null)
@@ -28,7 +28,7 @@ namespace Services.BaseService
                 {
                     if (service == null)
                     {
-                        service = new Service();
+                        service = new LanguageService();
                     }
                 }
             }

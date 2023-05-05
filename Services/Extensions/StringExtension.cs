@@ -13,5 +13,10 @@ namespace Services.Extensions
         {
             return IdiomaBll.Current.Traducir(palabra);
         }
+
+        public static void HandleException(this Exception ex)
+        {
+            Console.WriteLine("Aplicando política de exception...." + ex.Message);
+        }
     }
 }

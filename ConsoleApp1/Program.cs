@@ -128,14 +128,14 @@ namespace ConsoleApp1
 
         private static void Singleton()
         {
-            Service obj1 = Service.GetInstance();
-            Service obj2 = Service.GetInstance();
+            LanguageService obj1 = LanguageService.GetInstance();
+            LanguageService obj2 = LanguageService.GetInstance();
 
             Console.WriteLine(obj1 == obj2);
 
-            Service.GetInstance().WriteMessage("Bienvenidos al singleton");
+            LanguageService.GetInstance().WriteMessage("Bienvenidos al singleton");
 
-            Service.GetInstance().WriteMessage("Segundo mensaje...");
+            LanguageService.GetInstance().WriteMessage("Segundo mensaje...");
         }
     }
 }

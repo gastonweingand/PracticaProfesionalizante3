@@ -2,12 +2,15 @@
 using DAL.Interfaces;
 using DAL.Tools;
 using Domain;
+using Services.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.BaseService;
+using Services.Domain.ServicesExceptions;
 
 namespace DAL.Implementations.SqlServer
 {
@@ -72,21 +75,31 @@ namespace DAL.Implementations.SqlServer
 
         public Cliente GetById(Guid id)
         {
-            Cliente cliente = null;
-
-            using (SqlDataReader dr = SqlHelper.ExecuteReader(SelectOneStatement, System.Data.CommandType.Text,
-              new System.Data.SqlClient.SqlParameter[] { new SqlParameter("@IdUsuario", id) }))
+            try
             {
-                if (dr.Read())
-                {
-                    object[] campos = new object[dr.FieldCount];
-                    dr.GetSqlValues(campos);
+                Cliente cliente = null;
 
-                    //Usamos el adaptor para HIDRATAR el objeto Cliente
-                    cliente = ClienteAdapter.Current.Adapt(campos);
+                using (SqlDataReader dr = SqlHelper.ExecuteReader(SelectOneStatement, System.Data.CommandType.Text,
+                  new System.Data.SqlClient.SqlParameter[] { new SqlParameter("@IdUsuario", id) }))
+                {
+                    if (dr.Read())
+                    {
+                        object[] campos = new object[dr.FieldCount];
+                        dr.GetSqlValues(campos);
+
+                        //Usamos el adaptor para HIDRATAR el objeto Cliente
+                        cliente = ClienteAdapter.Current.Adapt(campos);
+                    }
                 }
+                return cliente;
             }
-            return cliente;
+            catch (Exception ex)
+            {
+                //ex.HandleException();
+                ExceptionService.Current.HandleException(new DALException(ex));
+                throw;
+            }
+           
         }
 
         public void Update(Cliente obj)

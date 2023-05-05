@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService\Service.cs" />
+    <Compile Include="BaseService\ExceptionService.cs" />
+    <Compile Include="BaseService\LanguageService.cs" />
     <Compile Include="BLL\IdiomaBll.cs" />
     <Compile Include="DAL\Factory\Factory.cs" />
     <Compile Include="DAL\Implementations\PlainText\IdiomaRepository.cs" />
@@ -57,6 +58,9 @@
     <Compile Include="Domain\Composite\Familia.cs" />
     <Compile Include="Domain\Composite\Patente.cs" />
     <Compile Include="Domain\Composite\User.cs" />
+    <Compile Include="Domain\ServicesExceptions\BLLException.cs" />
+    <Compile Include="Domain\ServicesExceptions\DALException.cs" />
+    <Compile Include="Domain\ServicesExceptions\UIException.cs" />
     <Compile Include="Domain\Usuario.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
