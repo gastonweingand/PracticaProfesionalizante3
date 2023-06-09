@@ -1,7 +1,9 @@
 ﻿using Services.BLL;
+using Services.DAL;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -59,9 +61,9 @@ namespace Services.BaseService
             }
         }
 
-        public List<String> GetIdiomasDisponibles()
+        public List<CultureInfo> GetIdiomasDisponibles()
         {
-            return null;
+            return IdiomaRepository.Current.GetIdiomasDisponibles();
         }
     }
 }
