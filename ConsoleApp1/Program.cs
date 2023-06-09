@@ -13,6 +13,7 @@ using Services.Extensions;
 using System.Threading;
 using System.Globalization;
 using Services.DAL;
+using Observador;
 
 namespace ConsoleApp1
 {
@@ -20,6 +21,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //Patrón observer
+            IBM ibm = new IBM("IBM", 120.00);
+            ibm.Attach(new Investor("Sorros"));
+            ibm.Attach(new Investor("Berkshire"));
+            // Fluctuating prices will notify investors
+            ibm.Price = 120.10;
+            ibm.Price = 121.00;
+            ibm.Price = 121.00;
+            ibm.Price = 121.00;
+            ibm.Price = 121.00;
+            ibm.Price = 120.50;
+            ibm.Price = 120.75;
+            // Wait for user
+            Console.ReadKey();
+
 
             Services.DAL.Interfaces.IGenericRepository<Patente> repoPatente = Services.DAL.Factory.FactoryDAL.Current.GetPatenteRepository();
             foreach (var item in repoPatente.GetAll())
