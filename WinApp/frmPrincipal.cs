@@ -21,6 +21,14 @@ namespace WinApp
         public frmPrincipal()
         {
             InitializeComponent();
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Sumador sumador = new Sumador();
+            //    sumador.Location = new Point(20 * i, 20 * i);
+            //    this.Controls.Add(sumador);
+            //}
+            
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)

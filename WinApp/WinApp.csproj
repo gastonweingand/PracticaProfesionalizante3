@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sumador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sumador.Designer.cs">
+      <DependentUpon>Sumador.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmListadoClientes.resx">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sumador.resx">
+      <DependentUpon>Sumador.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="I18n\idioma.en-US">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
