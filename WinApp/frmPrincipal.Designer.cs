@@ -79,11 +79,14 @@ namespace WinApp
             // 
             // cmbIdioma
             // 
+            this.cmbIdioma.DisplayMember = "DisplayName";
             this.cmbIdioma.FormattingEnabled = true;
             this.cmbIdioma.Location = new System.Drawing.Point(667, 3);
             this.cmbIdioma.Name = "cmbIdioma";
             this.cmbIdioma.Size = new System.Drawing.Size(121, 21);
             this.cmbIdioma.TabIndex = 2;
+            this.cmbIdioma.ValueMember = "Name";
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged);
             // 
             // frmPrincipal
             // 

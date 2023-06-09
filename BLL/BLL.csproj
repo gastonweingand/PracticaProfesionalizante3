@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessExceptions\ClienteNoExisteException.cs" />
-    <Compile Include="Implementations\ClienteBusinessRule.cs" />
+    <Compile Include="Implementations\ClienteService.cs" />
     <Compile Include="Interfaces\IGenericBusinessRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

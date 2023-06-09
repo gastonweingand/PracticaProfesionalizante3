@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Services.BaseService;
 using BLL.BusinessExceptions;
+using DAL.Factory;
 
 namespace BLL.Implementations
 {
     //Armar singleton...
-    public class ClienteBusinessRule : IGenericBusinessRule<Cliente>
+    public class ClienteService : IGenericBusinessRule<Cliente>
     {
         public void Add(Cliente obj)
         {
@@ -33,6 +34,11 @@ namespace BLL.Implementations
                 ExceptionService.Current.HandleException(new BLLException(ex));
                 throw;
             }
+        }
+
+        public List<Cliente> GetAll()
+        {
+            return FactoryDAL.Current.GetClientesRepository().GetAll();
         }
 
         public void Update(Cliente obj)

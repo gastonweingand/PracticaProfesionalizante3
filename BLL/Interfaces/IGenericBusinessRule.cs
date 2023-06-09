@@ -11,5 +11,7 @@ namespace BLL.Interfaces
         void Add(T obj);
 
         void Update(T obj);
+
+        List<T> GetAll();
     }
 }
