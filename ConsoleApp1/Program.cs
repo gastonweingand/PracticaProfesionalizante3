@@ -21,6 +21,23 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Stack<string> pila = new Stack<string>();
+            pila.Push("Elemento 1");
+            pila.Push("Elemento 2");
+
+            string peekElement = pila.Peek();
+
+            Console.WriteLine($"último elemento ingresado sin quitarlo: {peekElement}");
+
+            string quitadoElement = pila.Pop();
+
+            Console.WriteLine($"último elemento ingresado quitado: {quitadoElement}");
+
+            quitadoElement = pila.Pop();
+
+            Console.WriteLine($"último elemento ingresado quitado: {quitadoElement}");
+
+
             //Patrón observer
             IBM ibm = new IBM("IBM", 120.00);
             ibm.Attach(new Investor("Sorros"));

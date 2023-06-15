@@ -16,10 +16,11 @@ namespace WinApp
         [STAThread]
         static void Main()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-AR");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmPrincipal());
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-AR");
+            
         }
     }
 }
