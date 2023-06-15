@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Services.DAL.Interfaces
 {
-    public interface IBitacora
+    internal interface IBitacora
     {
         void Write(String mensaje, LogLevel level);
 

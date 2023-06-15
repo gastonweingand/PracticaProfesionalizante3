@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Domain
 {
-    class Usuario
+    public class Usuario
     {  
 
         public Guid IdUsuario { get; set; }

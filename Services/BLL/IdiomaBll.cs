@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Services.BLL
 {
 
-    public sealed class IdiomaBll
+    internal sealed class IdiomaBll
     {
         #region Singleton
         private readonly static IdiomaBll _instance = new IdiomaBll();

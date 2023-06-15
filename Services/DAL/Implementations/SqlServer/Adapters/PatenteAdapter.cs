@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Services.DAL.Implementations.SqlServer.Adapters
 {
 
-    public sealed class PatenteAdapter : IGenericAdapter<Patente>
+    internal sealed class PatenteAdapter : IGenericAdapter<Patente>
     {
         #region Singleton
         private readonly static PatenteAdapter _instance = new PatenteAdapter();

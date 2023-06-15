@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Services.DAL
 {
 
-    public sealed class IdiomaRepository : IIdiomaRepository
+    internal sealed class IdiomaRepository : IIdiomaRepository
     {
         #region Singleton
         private readonly static IdiomaRepository _instance = new IdiomaRepository();

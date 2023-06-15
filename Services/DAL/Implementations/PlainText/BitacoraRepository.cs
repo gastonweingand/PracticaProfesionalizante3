@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Services.DAL.Implementations.PlainText
 {
-    public class BitacoraRepository : IBitacora
+    internal class BitacoraRepository : IBitacora
     {
         private String pathFile;
         public BitacoraRepository()
@@ -53,7 +53,7 @@ namespace Services.DAL.Implementations.PlainText
         }
 
         public void Write(LogEntry log)
-        {
+        {            
             throw new NotImplementedException();
         }
     }

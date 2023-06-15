@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Services.DAL.Factory
 {
-    public sealed class FactoryDAL
+    internal sealed class FactoryDAL
     {   
         #region Singleton
         private readonly static FactoryDAL _instance = new FactoryDAL();

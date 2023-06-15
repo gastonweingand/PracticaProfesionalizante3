@@ -22,12 +22,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-
-            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Information);
-            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Debug);
-            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Error);
-            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Critical);
-
+            new BitacoraService().Write("Prueba", LogLevel.Information);
+            Services.Domain.LogEntry log = new Services.Domain.LogEntry();
+            log.Descripcion = "Probando bitácora con más datos";
+            new BitacoraService().Write(log);
 
 
             Stack<string> pila = new Stack<string>();
@@ -63,7 +61,7 @@ namespace ConsoleApp1
             Console.ReadKey();
 
 
-            Services.DAL.Interfaces.IGenericRepository<Patente> repoPatente = Services.DAL.Factory.FactoryDAL.Current.GetPatenteRepository();
+           /* Services.DAL.Interfaces.IGenericRepository<Patente> repoPatente = Services.DAL.Factory.FactoryDAL.Current.GetPatenteRepository();
             foreach (var item in repoPatente.GetAll())
             {
                 Console.WriteLine(item.FormName);
@@ -135,7 +133,7 @@ namespace ConsoleApp1
                 Console.WriteLine($"Patente: {item.FormName}, {item.MenuName}");
             }
 
-
+            */
 
 
 

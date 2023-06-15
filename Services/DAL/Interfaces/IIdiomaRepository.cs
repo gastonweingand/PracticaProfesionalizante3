@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Services.DAL
 {
-    public interface IIdiomaRepository
+    internal interface IIdiomaRepository
     {
         List<CultureInfo> GetIdiomasDisponibles();
         string Traducir(string key);

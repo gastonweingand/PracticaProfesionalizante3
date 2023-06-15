@@ -10,7 +10,7 @@ namespace Services.DAL.Interfaces
     /// Interface para exponer el repositorio genérico
     /// </summary>
     /// <typeparam name="T">Tipo genérico que será implementado por los Implementations</typeparam>
-    public interface IGenericRepository<T>
+    internal interface IGenericRepository<T>
     {
         void Add(T obj);
 

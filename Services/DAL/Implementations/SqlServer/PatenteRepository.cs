@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Services.DAL.Implementations.SqlServer
 {
 
-    public sealed class PatenteRepository : IGenericRepository<Patente>
+    internal sealed class PatenteRepository : IGenericRepository<Patente>
     {
         #region Singleton
         private readonly static PatenteRepository _instance = new PatenteRepository();

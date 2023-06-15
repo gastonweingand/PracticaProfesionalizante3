@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.DAL.Interfaces
 {
-    interface IGenericAdapter<T>
+    internal interface IGenericAdapter<T>
     {
         T Adapt(object[] obj);
     }
