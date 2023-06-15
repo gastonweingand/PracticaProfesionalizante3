@@ -1,4 +1,5 @@
-﻿using Services.DAL.Implementations.SqlServer;
+﻿using Services.DAL.Implementations.PlainText;
+using Services.DAL.Implementations.SqlServer;
 using Services.DAL.Interfaces;
 using Services.Domain.Composite;
 using System;
@@ -40,6 +41,11 @@ namespace Services.DAL.Factory
                 default:
                     return null;
             }
+        }
+
+        public IBitacora GetBitacoraRepository()
+        {
+            return new BitacoraRepository();
         }
     }
 

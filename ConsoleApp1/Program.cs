@@ -14,6 +14,7 @@ using System.Threading;
 using System.Globalization;
 using Services.DAL;
 using Observador;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleApp1
 {
@@ -21,6 +22,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Information);
+            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Debug);
+            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Error);
+            new Services.DAL.Implementations.PlainText.BitacoraRepository().Write("Prueba", LogLevel.Critical);
+
+
+
             Stack<string> pila = new Stack<string>();
             pila.Push("Elemento 1");
             pila.Push("Elemento 2");

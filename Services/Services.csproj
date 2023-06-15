@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseService\BitacoraService.cs" />
     <Compile Include="BaseService\ExceptionService.cs" />
     <Compile Include="BaseService\LanguageService.cs" />
     <Compile Include="BLL\IdiomaBll.cs" />
