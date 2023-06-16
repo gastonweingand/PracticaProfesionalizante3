@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Services.DAL.Factory;
 using Services.Domain;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Services.BaseService
 
         public List<LogEntry> GetByFilter(DateTime from, DateTime to, LogLevel level)
         {
-            return null;
+            return FactoryDAL.Current.GetBitacoraRepository().GetByFilter(from, to, level);
         }
 
         public List<LogEntry> GetByFilter(DateTime from, DateTime to, String usuario)

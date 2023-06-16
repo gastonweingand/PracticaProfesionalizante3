@@ -15,6 +15,7 @@ using System.Globalization;
 using Services.DAL;
 using Observador;
 using Microsoft.Extensions.Logging;
+using Services.Domain;
 
 namespace ConsoleApp1
 {
@@ -27,6 +28,12 @@ namespace ConsoleApp1
             log.Descripcion = "Probando bitácora con más datos";
             new BitacoraService().Write(log);
 
+            List<LogEntry> entries = new BitacoraService().GetByFilter(DateTime.Now, DateTime.Now, LogLevel.Information);
+
+            foreach (var item in entries)
+            {
+                Console.WriteLine(item.Descripcion);
+            }
 
             Stack<string> pila = new Stack<string>();
             pila.Push("Elemento 1");
