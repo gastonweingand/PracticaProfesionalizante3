@@ -33,9 +33,7 @@ namespace Services.DAL.Implementations.PlainText
             //?
 
             //Pensar un método que busque los archivos que cumplen la condición from/to
-            List<FileInfo> archivosBitacora = new List<FileInfo>();
-
-            archivosBitacora.Add(new FileInfo(pathFile));
+            List<FileInfo> archivosBitacora = GetFiles(from, to);
 
             List<LogEntry> entries = new List<LogEntry>();
 
@@ -65,6 +63,26 @@ namespace Services.DAL.Implementations.PlainText
                 }
             }
 
+            return entries;
+        }
+
+        private List<FileInfo> GetFiles(DateTime from, DateTime to)
+        {
+            //Calcular nombres de archivos desde (from) hasta to()
+
+            //Por ejemplo: 10/06/2023 hasta 15/06/2023: 10/06/2023, 11/06/2023, 12/06/2023, 13/06/2023, 14/06/2023 y 15/06/2023
+            string directory = ConfigurationManager.AppSettings["PathFile"].Replace("bitacora", "");
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+            List<FileInfo> entries = new List<FileInfo>();
+
+            foreach (var item in directoryInfo.GetFiles())
+            {
+                if(item.Name.Contains(from.ToString("ddMMyyyy")) || item.Name.Contains(to.ToString("ddMMyyyy")))
+                {
+                    entries.Add(item);
+                }
+            }
             return entries;
         }
 
