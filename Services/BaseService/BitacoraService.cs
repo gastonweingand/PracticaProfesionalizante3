@@ -13,7 +13,7 @@ namespace Services.BaseService
     {
         public void Write(String mensaje, LogLevel level)
         {
-
+            FactoryDAL.Current.GetBitacoraRepository().Write(mensaje, level);
         }
 
         public void Write(LogEntry log)
